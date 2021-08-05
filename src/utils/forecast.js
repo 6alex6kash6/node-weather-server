@@ -10,11 +10,11 @@ const forecast = (langitude, latitude, cb) => {
       cb(response.body.error, undefined);
     } else {
       const { currently, daily } = response.body;
-      const { temperature, precipProbability } = currently;
+      const { temperature, precipProbability, windSpeed } = currently;
       const { data } = daily;
       cb(
         undefined,
-        `${data[0].summary} Temprature: ${temperature}, Rain probability: ${precipProbability}`
+        `${data[0].summary} Temprature: ${temperature}, Rain probability: ${precipProbability}. Wind speed is: ${windSpeed}`
       );
     }
   });
